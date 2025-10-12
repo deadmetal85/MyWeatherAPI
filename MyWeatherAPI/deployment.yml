@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: my-weather-api-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: my-weather-api
+    template:
+        metadata:
+            labels:
+                app: my-weather-api
+        spec:
+            containers:
+            - name: my-weather-api
+              image: deadmetal85/my-weather-api
+              ports:
+              - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: my-weather-api-service
+spec:
+    selector:
+        app: my-weather-api
+    ports:
+        - protocol: TCP
+          port: 5000
+          targetPort: 8080
+          nodePort: 30000
+    type: NodePort
