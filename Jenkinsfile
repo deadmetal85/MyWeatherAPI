@@ -37,8 +37,8 @@ pipeline {
                         configName: 'Ansible-Server', // Name configured in Jenkins global settings
                         transfers: [
                             sshTransfer(
-                                sourceFiles: 'published/MyWeatherAPI.dll', // Path to the artifact in your workspace
-                                remoteDirectory: '//opt//docker', // Target directory on the remote server
+                                sourceFiles: 'published/**', // Path to the artifact in your workspace
+                                remoteDirectory: '//opt//docker//MyWeatherAPI//published', // Target directory on the remote server
                                 removePrefix: 'published/', // Optional: remove a prefix from source file paths
                                 execCommand: '' // Optional: command to execute after transfer
                             )
