@@ -40,7 +40,7 @@ pipeline {
                                 sourceFiles: 'published/**', // Path to the artifact in your workspace
                                 remoteDirectory: '//opt//docker//MyWeatherAPI//published', // Target directory on the remote server
                                 removePrefix: 'published/', // Optional: remove a prefix from source file paths
-                                execCommand: '' // Optional: command to execute after transfer
+                                execCommand: 'ansible-playbook /opt/docker/MyWeatherAPI/image_create.yml' // Optional: command to execute after transfer
                             )
                         ],
                         // Optional: execute commands before transfers
