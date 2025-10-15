@@ -53,4 +53,17 @@ pipeline {
             echo 'Build failed, no publishing performed.'
         }
     }
+    post {
+        success {
+            echo 'Current build is stable. Triggering downstream project...'
+            // Trigger another project named 'DownstreamProject'
+            build job: 'MyWeatherAPI-CD'
+        }
+        failure {
+            echo 'Current build failed. Not triggering downstream project.'
+        }
+        unstable {
+            echo 'Current build is unstable. Not triggering downstream project.'
+        }
+    }
 }
