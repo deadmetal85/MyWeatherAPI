@@ -43,7 +43,7 @@ namespace MyWeatherAPI
 
             var summaries = new[]
             {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching", "Numbing", "Frosty"
             };
 
             app.MapGet("/weatherforecast", (HttpContext httpContext) =>
